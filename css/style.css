@@ -46,10 +46,14 @@ body{
     width: 60px;
     height: 60px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .search button img{
     width: 16px;
+    
 }
 
 .weather-icon{
