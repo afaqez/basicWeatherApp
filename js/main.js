@@ -33,7 +33,7 @@ async function getWeatherData(longitude, latitude) {
             const windSpeed = data.wind.speed;
             console.log(name);
             temperature = data.main.temp; // to convert kelvin -> celsius
-            temperature = (temperature - 273.15).toFixed(2); // .toFixed added to vocab
+            temperature = Math.round((temperature - 273.15)); // .toFixed added to vocab
 
             document.getElementById('humidityValue').textContent = humidity + '%';
             document.getElementById('windSpeedValue').textContent = windSpeed + ' km/h';
