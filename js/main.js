@@ -31,12 +31,14 @@ async function getWeatherData(longitude, latitude) {
             let temperature = 0;
             const humidity = data.main.humidity;
             const windSpeed = data.wind.speed;
+            console.log(name);
             temperature = data.main.temp; // to convert kelvin -> celsius
             temperature = (temperature - 273.15).toFixed(2); // .toFixed added to vocab
 
             document.getElementById('humidityValue').textContent = humidity + '%';
             document.getElementById('windSpeedValue').textContent = windSpeed + ' km/h';
             document.getElementById('temperatureValue').textContent = temperature + '°C';
+            document.querySelector('.city').innerHTML = data.name; // had to use query selector because .getElementById wasn't working for me
         }
         else{
             console.log('Abon');
