@@ -34,11 +34,38 @@ async function getWeatherData(longitude, latitude) {
             console.log(name);
             temperature = data.main.temp; // to convert kelvin -> celsius
             temperature = Math.round((temperature - 273.15)); // .toFixed added to vocab
+            const weatherIcon = document.querySelector('.weather-icon');
+
 
             document.getElementById('humidityValue').textContent = humidity + '%';
             document.getElementById('windSpeedValue').textContent = windSpeed + ' km/h';
             document.getElementById('temperatureValue').textContent = temperature + '°C';
             document.querySelector('.city').innerHTML = data.name; // had to use query selector because .getElementById wasn't working for me
+
+            if (data.weather[0].main == 'Clouds'){
+                weatherIcon.src = 'images/clouds.png';
+            }
+            else if (data.weather[0].main == 'Clear'){
+                weatherIcon.src = 'images/clear.png';
+            }
+            else if (data.weather[0].main == 'Drizzle'){
+                weatherIcon.src = 'images/drizzle.png';
+            }
+            else if (data.weather[0].main == 'Humidity'){
+                weatherIcon.src = 'images/humidity.png';
+            }
+            else if (data.weather[0].main == 'Mist'){
+                weatherIcon.src = 'images/mist.png';
+            }
+            else if (data.weather[0].main == 'Rain'){
+                weatherIcon.src = 'images/rain.png';
+            }
+            else if (data.weather[0].main == 'Snow'){
+                weatherIcon.src = 'images/snow.png';
+            }
+            else if (data.weather[0].main == 'Wind'){
+                weatherIcon.src = 'images/wind.png';
+            }
         }
         else{
             console.log('Abon');
